@@ -55,17 +55,20 @@ for(let i=1; i<=testCases; i++) {
     let elements = String(jsPrompt()).split(' ')
     
     if(elements.length !== elementsCount) {
-        throw 'Invalid input'
+    throw 'Invalid input'
     }
 
     elements.forEach(element => {
-            arr.push(validateInput(Number(element)))
+    arr.push(validateInput(Number(element)))
     });
 
     //Enter no. to be searched
     let searchNum = validateInput(Number(jsPrompt()))
     
-    results.push(linearSearch(arr, searchNum))
+    console.time('linearSearch time')
+    let res = linearSearch(arr, searchNum)
+    console.timeEnd('linearSearch time')
+    results.push(res)
 }
 
 results.forEach(result=>console.log(result))
