@@ -25,7 +25,7 @@ Output:
 const jsPrompt = require('prompt-sync')({sigint: true});
 
 function validateInput(val) {
-    if(typeof val !== 'number' || val<1 || val>100) {
+    if(!Number.isInteger(val) || val<1 || val>100) {
         throw "Invalid input"
     }
     return val
@@ -59,7 +59,7 @@ for(let i=1; i<=testCases; i++) {
     }
 
     elements.forEach(element => {
-            arr.push(validateInput(Number(element))) //TODO: doesn't throw error
+            arr.push(validateInput(Number(element)))
     });
 
     //Enter no. to be searched
